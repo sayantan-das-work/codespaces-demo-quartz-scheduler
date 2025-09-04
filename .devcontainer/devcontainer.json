@@ -1,6 +1,8 @@
 {
   "name": "Spring Boot Java 17 Dev",
-  "image": "mcr.microsoft.com/devcontainers/java:17",
+  "build": {
+    "dockerfile": "Dockerfile"
+  }
 
   "features": {
     "ghcr.io/devcontainers/features/maven:1": {},
