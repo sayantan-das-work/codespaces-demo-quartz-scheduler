@@ -3,28 +3,17 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "features": {
-    "ghcr.io/devcontainers/features/maven:1": {},
-    "ghcr.io/devcontainers/features/ant:1": {}
-  },
-
   "customizations": {
     "vscode": {
       "extensions": [
-        "vscjava.vscode-java-pack",          // Java language support
-        "vscjava.vscode-maven",              // Maven integration
-        "redhat.java",                       // Language support for Java
-        "vscjava.vscode-java-debug",         // Debugger for Java
-        "vscjava.vscode-java-dependency",    // Project dependencies explorer
-        "vscjava.vscode-java-test",          // Test support for Java
-        "pivotal.vscode-spring-boot",        // Spring Boot support
-        "vmware.vscode-spring-boot",         // Spring Boot dashboard & utilities
-        "vscjava.vscode-spring-initializr"   // Spring Initializr support
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-maven",
+        "pivotal.vscode-spring-boot",
+        "vmware.vscode-spring-boot",
+        "vscjava.vscode-spring-initializr"
       ]
     }
   },
-
   "forwardPorts": [8080],
-
-  "postCreateCommand": "git lfs install && java -version && mvn -v && ant -version"
+  "postCreateCommand": "java -version && mvn -v && ant -version"
 }

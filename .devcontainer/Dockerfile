@@ -1,20 +1,7 @@
-FROM ubuntu:jammy
+# Base image with Java 17
+FROM mcr.microsoft.com/devcontainers/java:17-bullseye
 
-ENV LANG='en_US.UTF-8'
-RUN set -ex && \
-    apt-get -qq update && \
-    apt-get -qq -y --no-install-recommends install gnupg ca-certificates locales curl tzdata && \
-    echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && \
-    locale-gen en_US.UTF-8 && \
-    curl -s https://repos.azul.com/azul-repo.key | gpg --dearmor -o /usr/share/keyrings/azul.gpg && \
-    echo "deb [signed-by=/usr/share/keyrings/azul.gpg] https://repos.azul.com/zulu/deb stable main" > /etc/apt/sources.list.d/zulu.list && \
-    apt-get -qq update && \
-    echo "Package: zulu17-*\nPin: version 17.0.16-*\nPin-Priority: 1001" > /etc/apt/preferences && \
-    apt-get -qq -y --no-install-recommends install zulu17-jdk=17.0.16-* && \
-    apt-get -qq -y purge --auto-remove gnupg curl && \
-    apt-get -qq -y dist-upgrade && \
-    apt-get -qq -y autoremove && \
-    apt-get -qq clean && \
+# Install Maven & Ant
+RUN apt-get update && \
+    apt-get install -y maven ant && \
     rm -rf /var/lib/apt/lists/*
-
-ENV JAVA_HOME=/usr/lib/jvm/zulu17
