@@ -2,8 +2,7 @@
   "name": "Spring Boot Java 17 Dev",
   "build": {
     "dockerfile": "Dockerfile"
-  }
-
+  },
   "features": {
     "ghcr.io/devcontainers/features/maven:1": {},
     "ghcr.io/devcontainers/features/ant:1": {}
