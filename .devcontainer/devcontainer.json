@@ -26,5 +26,5 @@
 
   "forwardPorts": [8080],
 
-  "postCreateCommand": "java -version && mvn -v && ant -version"
+  "postCreateCommand": "git lfs install && java -version && mvn -v && ant -version"
 }
