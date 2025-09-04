@@ -1,0 +1,29 @@
+{
+  "name": "Spring Boot Java 17 Dev",
+  "image": "mcr.microsoft.com/devcontainers/java:17",
+
+  "features": {
+    "ghcr.io/devcontainers/features/maven:1": {},
+    "ghcr.io/devcontainers/features/ant:1": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",          // Java language support
+        "vscjava.vscode-maven",              // Maven integration
+        "redhat.java",                       // Language support for Java
+        "vscjava.vscode-java-debug",         // Debugger for Java
+        "vscjava.vscode-java-dependency",    // Project dependencies explorer
+        "vscjava.vscode-java-test",          // Test support for Java
+        "pivotal.vscode-spring-boot",        // Spring Boot support
+        "vmware.vscode-spring-boot",         // Spring Boot dashboard & utilities
+        "vscjava.vscode-spring-initializr"   // Spring Initializr support
+      ]
+    }
+  },
+
+  "forwardPorts": [8080],
+
+  "postCreateCommand": "java -version && mvn -v && ant -version"
+}
